@@ -1,0 +1,25 @@
+{
+  "IndexPage": {
+    "welcome": "مرحبا",
+    "leads": "عميل",
+    "add_leads": "اضافة عميل جديد",
+    "filter": "فلتره",
+    "id": "م",
+    "name": "اسم العميل",
+    "date": "التاريخ",
+    "status": "الحاله",
+    "prop_type": "نوع الملكيه",
+    "enquery_type": "نوع الاستعلام",
+    "lead_source": "مصدر العميل"
+  },
+  "AddPage": {
+    "basic_information": "بيانات اساسيه",
+    "contact_name": "اسم العميل",
+    "status": "الحاله",
+    "prop_type": "نوع الملكيه",
+    "enquery_type": "نوع الاستعلام",
+    "lead_source": "مصدر العميل",
+    "add": "اضافة",
+    "cancel": "الغاء"
+  }
+}

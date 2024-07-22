@@ -1,0 +1,25 @@
+{
+  "IndexPage": {
+    "welcome": "Welcome",
+    "leads": "Leads",
+    "add_leads": "Add New Leads",
+    "filter": "Filter",
+    "id": "ID",
+    "name": "Leads name",
+    "date": "Date",
+    "status": "Status",
+    "prop_type": "Property Type",
+    "lead_source": "Lead Source",
+    "enquery_type": "Enquery Type"
+  },
+  "AddPage": {
+    "basic_information": "Basic Information",
+    "contact_name": "Contact Name",
+    "status": "Status",
+    "prop_type": "Property Type",
+    "lead_source": "Lead Source",
+    "enquery_type": "Enquery Type",
+    "add": "Add",
+    "cancel": "Cancel"
+  }
+}
