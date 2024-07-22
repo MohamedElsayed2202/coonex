@@ -54,7 +54,7 @@ export default function Home() {
       component={"section"}
       sx={{
         m: 2,
-        height: "80vh",
+        height: "79vh",
       }}
     >
       <Box
@@ -91,7 +91,15 @@ export default function Home() {
           rows={data}
           columns={columns}
           loading={isLoading}
-          sx={{ height: "80%", width: "100%" }}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 7,
+              }
+            },
+          }}
+          pageSizeOptions={[5]}
+          sx={{ height: "100%", width: "100%" }}
         />
       </Box>
     </Box>

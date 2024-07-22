@@ -58,7 +58,6 @@ const MainLayout = ({ children }: RootLayoutProps) => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  console.log(22222222222);
 
   useEffect(() => {
     document.documentElement.dir = localeActive === "ar" ? "rtl" : "ltr";
@@ -154,10 +153,9 @@ const MainLayout = ({ children }: RootLayoutProps) => {
               <Drawer
                 variant="temporary"
                 open={mobileOpen}
-                // anchor={localeActive === "ar" ? "right" : "left"}
                 onClose={handleDrawerToggle}
                 ModalProps={{
-                  keepMounted: true, // Better open performance on mobile.
+                  keepMounted: true, 
                 }}
                 sx={{
                   display: { xs: "block", sm: "block" },
@@ -168,17 +166,11 @@ const MainLayout = ({ children }: RootLayoutProps) => {
               </Drawer>
               <Drawer
                 variant="permanent"
-                // anchor={localeActive === "ar" ? "right" : "left"}
                 sx={{
                   display: { xs: "none", sm: "none", md: "block" },
                   "& .MuiDrawer-paper": {
                     boxSizing: "border-box",
                     width: 240,
-                    // right: localeActive === "ar" ? 0 : "unset",
-                    // borderLeft:
-                    //   localeActive === "ar"
-                    //     ? "1px solid rgba(0, 0, 0, 0.12)"
-                    //     : "unse",
                   },
                 }}
                 open
@@ -188,7 +180,7 @@ const MainLayout = ({ children }: RootLayoutProps) => {
             </Box>
             <Box
               component="main"
-              sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 240px)` } }}
+              sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 240px)`, xs: "100%" } }}
             >
               <Toolbar />
               {children}
