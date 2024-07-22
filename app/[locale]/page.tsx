@@ -1,17 +1,29 @@
 "use client";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Box, Button, Table } from "@mui/material";
+import { Box, Button, Drawer, Table } from "@mui/material";
 import { useLocale, useTranslations } from "next-intl";
 import { ILead } from "../utils/interfaces";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { getLoads } from "../utils/apis";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
   const t = useTranslations("IndexPage");
   const router = useRouter();
   const localeActive = useLocale();
+  const [openFilter, setOpenFilter] = useState<boolean>(false);
+  const [filter, setFilter] = useState<{
+    leadSrc: string;
+    status: string;
+    filtring: boolean;
+  }>({
+    leadSrc: "",
+    status: "",
+    filtring: false,
+  });
+
   const { data, isLoading } = useQuery({
     queryFn: () => getLoads(),
     queryKey: ["leads"],
@@ -57,6 +69,25 @@ export default function Home() {
         height: "79vh",
       }}
     >
+      <Drawer
+        sx={{
+          "& .MuiDrawer-paper": { width: 300, height: "91vh", top: "65px" },
+        }}
+        open={openFilter}
+        anchor={localeActive === "ar" ? "left" : "right"}
+        onClose={() => setOpenFilter(false)}
+      >
+        <Box
+          component={"div"}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        ></Box>
+      </Drawer>
       <Box
         component={"div"}
         sx={{
@@ -77,7 +108,9 @@ export default function Home() {
             width: "100%",
           }}
         >
-          <Button variant="contained">{t("filter")}</Button>
+          <Button variant="contained" onClick={() => setOpenFilter(true)}>
+            {t("filter")}
+          </Button>
           <Button
             variant="contained"
             onClick={() => {
@@ -95,7 +128,7 @@ export default function Home() {
             pagination: {
               paginationModel: {
                 pageSize: 7,
-              }
+              },
             },
           }}
           pageSizeOptions={[5]}
